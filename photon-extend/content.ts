@@ -1,5 +1,7 @@
+import phauxSpot from "data-base64:~assets/phauxspot.png"
 import type { PlasmoCSConfig } from "plasmo"
 
+console.log("phauxSpot", phauxSpot)
 export {}
 console.log("??")
 const doseWhite = "#ffffff"
@@ -20,22 +22,22 @@ const convertStyles = (root) => {
     ".leading-snug.text-lg.text-black.font-semibold"
   )
   const photonLabels = root.querySelectorAll(".text-gray-700.text-sm.font-sans")
-  // const allText = root.querySelectorAll("p")
-  // const allDivs = root.querySelectorAll("div")
-  // const allSpans = root.querySelectorAll("span")
-  // console.log(allText)
-  // for (const text of allText) {
-  //   // add class .source-sans-3-photon
-  //   text.classList.add("source-sans-3-photon")
-  // }
-  // for (const div of allDivs) {
-  //   // add class .source-sans-3-photon
-  //   div.classList.add("source-sans-3-photon")
-  // }
-  // for (const span of allSpans) {
-  //   // add class .source-sans-3-photon
-  //   span.classList.add("source-sans-3-photon")
-  // }
+  const allText = root.querySelectorAll("p")
+  const allDivs = root.querySelectorAll("div")
+  const allSpans = root.querySelectorAll("span")
+  console.log(allText)
+  for (const text of allText) {
+    // add class .source-sans-3-photon
+    text.classList.add("source-sans-3-photon")
+  }
+  for (const div of allDivs) {
+    // add class .source-sans-3-photon
+    div.classList.add("source-sans-3-photon")
+  }
+  for (const span of allSpans) {
+    // add class .source-sans-3-photon
+    span.classList.add("source-sans-3-photon")
+  }
 
   for (const label of photonLabels) {
     ;(label as HTMLElement).style.color = doseOrange
@@ -80,9 +82,7 @@ const convertStyles = (root) => {
 
 // if window location is app.boson.health
 if (window.location.href.includes("app.boson.health")) {
-  console.log("app.boson.health")
   window.addEventListener("load", () => {
-    console.log("app.boson.health load")
     const bgInterval = setInterval(() => {
       const photonClientElement = document.querySelector(
         "photon-multirx-form-wrapper"
@@ -105,12 +105,11 @@ if (window.location.href.includes("app.boson.health")) {
       const treatmentSelect = shadowPrescribeFlow.querySelector(
         "photon-treatment-select"
       )
-      console.log("??")
-      const shadowTreatmentSelect = treatmentSelect.shadowRoot
+
       const headerDivs = shadowFormWrapper.querySelectorAll("header > div")
 
       const img = document.createElement("img")
-      img.src = "https://i.ibb.co/d0Nk364/phosespot.png"
+      img.src = phauxSpot
       img.style.width = "140px"
       img.style.height = "50px"
       img.style.margin = "0 auto"
@@ -125,41 +124,40 @@ if (window.location.href.includes("app.boson.health")) {
       // append preconnect links <link rel="preconnect" href="https://fonts.googleapis.com">
       // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-      // const preconnect = document.createElement("link")
-      // preconnect.rel = "preconnect"
-      // preconnect.href = "https://fonts.googleapis.com"
-      // document.head.appendChild(preconnect)
+      const preconnect = document.createElement("link")
+      preconnect.rel = "preconnect"
+      preconnect.href = "https://fonts.googleapis.com"
+      document.head.appendChild(preconnect)
 
-      // const preconnect2 = document.createElement("link")
-      // preconnect2.rel = "preconnect"
-      // preconnect2.href = "https://fonts.gstatic.com"
-      // preconnect2.crossOrigin = "anonymous"
-      // document.head.appendChild(preconnect2)
+      const preconnect2 = document.createElement("link")
+      preconnect2.rel = "preconnect"
+      preconnect2.href = "https://fonts.gstatic.com"
+      preconnect2.crossOrigin = "anonymous"
+      document.head.appendChild(preconnect2)
 
-      // // append style tag to head
-      // const link = document.createElement("link")
-      // link.rel = "stylesheet"
-      // link.href =
-      //   "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-      // document.head.appendChild(link)
+      // append style tag to head
+      const link = document.createElement("link")
+      link.rel = "stylesheet"
+      link.href =
+        "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      document.head.appendChild(link)
 
-      // const fontStyle = `
-      // .source-sans-3-photon {
-      //   font-family: "Source Sans 3", sans-serif;
-      //   font-optical-sizing: auto;
-      //   font-weight: 500;
-      //   font-style: normal;
-      // }`
+      const fontStyle = `
+      .source-sans-3-photon {
+        font-family: "Source Sans 3", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+      }`
 
-      // // append font style to a style tag in the head
-      // const style = document.createElement("style")
-      // style.innerHTML = fontStyle
-      // document.head.appendChild(style)
+      // append font style to a style tag in the head
+      const style = document.createElement("style")
+      style.innerHTML = fontStyle
+      document.head.appendChild(style)
 
       const styleInterval = setInterval(() => {
         convertStyles(shadowFormWrapper)
         convertStyles(shadowPrescribeFlow)
-        convertStyles(shadowTreatmentSelect)
       }, 300)
 
       setTimeout(() => {
